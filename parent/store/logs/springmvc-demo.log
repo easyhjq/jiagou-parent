@@ -1,0 +1,24 @@
+2017-12-12 14:34:08 [INFO]-[org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization started
+  2017-12-12 14:34:08 [INFO]-[org.springframework.web.context.support.XmlWebApplicationContext] Refreshing Root WebApplicationContext: startup date [Tue Dec 12 14:34:08 CST 2017]; root of context hierarchy
+  2017-12-12 14:34:08 [INFO]-[org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from class path resource [resources/spring.xml]
+  2017-12-12 14:34:09 [INFO]-[org.springframework.context.support.PropertySourcesPlaceholderConfigurer] Loading properties file from class path resource [resources/db.properties]
+  2017-12-12 14:34:09 [INFO]-[org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  2017-12-12 14:34:11 [INFO]-[org.springframework.web.context.ContextLoader] Root WebApplicationContext: initialization completed in 3075 ms
+  2017-12-12 14:34:11 [INFO]-[org.springframework.web.servlet.DispatcherServlet] FrameworkServlet 'springmvc': initialization started
+  2017-12-12 14:34:11 [INFO]-[org.springframework.web.context.support.XmlWebApplicationContext] Refreshing WebApplicationContext for namespace 'springmvc-servlet': startup date [Tue Dec 12 14:34:11 CST 2017]; parent: Root WebApplicationContext
+  2017-12-12 14:34:11 [INFO]-[org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from class path resource [resources/spring-mvc.xml]
+  2017-12-12 14:34:11 [INFO]-[org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor] JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  2017-12-12 14:34:12 [INFO]-[org.springframework.web.servlet.handler.SimpleUrlHandlerMapping] Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+  2017-12-12 14:34:12 [INFO]-[org.springframework.web.servlet.handler.SimpleUrlHandlerMapping] Mapped URL path [/static/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+  2017-12-12 14:34:12 [INFO]-[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/store/add],methods=[POST]}" onto public java.lang.String com.jiagou.store.web.StoreController.add(com.jiagou.store.vo.StoreModel)
+  2017-12-12 14:34:12 [INFO]-[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/store/toAdd],methods=[GET]}" onto public java.lang.String com.jiagou.store.web.StoreController.toAdd()
+  2017-12-12 14:34:12 [INFO]-[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/store/toUpdate/{uuid}],methods=[GET]}" onto public java.lang.String com.jiagou.store.web.StoreController.toUpdate(org.springframework.ui.Model,int)
+  2017-12-12 14:34:12 [INFO]-[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/store/toDelete/{uuid}],methods=[GET]}" onto public java.lang.String com.jiagou.store.web.StoreController.toDelete(org.springframework.ui.Model,int)
+  2017-12-12 14:34:12 [INFO]-[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/store/toQuery],methods=[GET]}" onto public java.lang.String com.jiagou.store.web.StoreController.toQuery()
+  2017-12-12 14:34:12 [INFO]-[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/store/toList],methods=[GET]}" onto public java.lang.String com.jiagou.store.web.StoreController.toList(com.jiagou.store.web.StoreWebModel,org.springframework.ui.Model)
+  2017-12-12 14:34:12 [INFO]-[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/store/delete],methods=[POST]}" onto public java.lang.String com.jiagou.store.web.StoreController.post(int)
+  2017-12-12 14:34:12 [INFO]-[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/store/update],methods=[POST]}" onto public java.lang.String com.jiagou.store.web.StoreController.post(com.jiagou.store.vo.StoreModel)
+  2017-12-12 14:34:13 [INFO]-[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] Looking for @ControllerAdvice: WebApplicationContext for namespace 'springmvc-servlet': startup date [Tue Dec 12 14:34:11 CST 2017]; parent: Root WebApplicationContext
+  2017-12-12 14:34:13 [INFO]-[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] Looking for @ControllerAdvice: WebApplicationContext for namespace 'springmvc-servlet': startup date [Tue Dec 12 14:34:11 CST 2017]; parent: Root WebApplicationContext
+  2017-12-12 14:34:13 [INFO]-[org.springframework.web.servlet.DispatcherServlet] FrameworkServlet 'springmvc': initialization completed in 1652 ms
+  

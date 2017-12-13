@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiagou.cart.dao.CartMapper">
+	<cache type="org.mybatis.caches.ehcache.LoggingEhcache">
+		<property name="timeToIdleSeconds" value="3600" /><!--1 hour -->
+		<property name="timeToLiveSeconds" value="3600" /><!--1 hour -->
+		<property name="maxEntriesLocalHeap" value="1000" />
+		<property name="maxEntriesLocalDisk" value="10000000" />
+		<property name="memoryStoreEvictionPolicy" value="LRU" />
+	</cache>
+	<insert id="create" parameterType="cartModel">
+		insert into tbl_cart (customerUuid,goodsUuid,buyNum)
+		values(#{customerUuid},#{goodsUuid},#{buyNum})
+	</insert>
+	<update id="update" parameterType="cartModel">
+		update tbl_cart set
+		customerUuid=#{customerUuid},goodsUuid=#{goodsUuid},buyNum=#{buyNum}
+		where uuid=#{uuid}
+	</update>
+	<delete id="delete" parameterType="int">
+		delete from tbl_cart where uuid=#{uuid}
+	</delete>
+
+	<select id="getByUuid" parameterType="int" resultType="cartModel">
+		select * from tbl_cart where uuid=#{uuid}
+	</select>
+	<select id="getByConditionPage" parameterType="cartQueryModel"
+		resultType="cartModel">
+		select * from tbl_cart
+		<where>
+			<if test="uuid!=null &amp;&amp; uuid > 0">
+				and uuid=#{uuid}
+			</if>
+			<if test="customerUuid!=null &amp;&amp; customerUuid > 0">
+				and customerUuid=#{customerUuid}
+			</if>
+
+		</where>
+	</select>
+</mapper>

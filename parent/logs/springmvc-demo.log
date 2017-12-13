@@ -1,0 +1,15 @@
+2017-12-07 15:44:10 [INFO]-[org.springframework.context.support.ClassPathXmlApplicationContext] Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@34033bd0: startup date [Thu Dec 07 15:44:10 CST 2017]; root of context hierarchy
+  2017-12-07 15:44:10 [INFO]-[org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from class path resource [resources/spring.xml]
+  2017-12-07 15:44:11 [INFO]-[org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from class path resource [resources/spring-mvc.xml]
+  2017-12-07 15:44:11 [INFO]-[org.springframework.context.support.PropertySourcesPlaceholderConfigurer] Loading properties file from class path resource [resources/db.properties]
+  2017-12-07 15:44:14 [INFO]-[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] Looking for @ControllerAdvice: org.springframework.context.support.ClassPathXmlApplicationContext@34033bd0: startup date [Thu Dec 07 15:44:10 CST 2017]; root of context hierarchy
+  2017-12-07 15:44:14 [INFO]-[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] Looking for @ControllerAdvice: org.springframework.context.support.ClassPathXmlApplicationContext@34033bd0: startup date [Thu Dec 07 15:44:10 CST 2017]; root of context hierarchy
+  2017-12-07 15:44:15 [INFO]-[com.alibaba.druid.pool.DruidDataSource] {dataSource-1} inited
+  2017-12-07 15:45:37 [INFO]-[org.springframework.context.support.ClassPathXmlApplicationContext] Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@34033bd0: startup date [Thu Dec 07 15:45:37 CST 2017]; root of context hierarchy
+  2017-12-07 15:45:37 [INFO]-[org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from class path resource [resources/spring.xml]
+  2017-12-07 15:45:37 [INFO]-[org.springframework.beans.factory.xml.XmlBeanDefinitionReader] Loading XML bean definitions from class path resource [resources/spring-mvc.xml]
+  2017-12-07 15:45:37 [INFO]-[org.springframework.context.support.PropertySourcesPlaceholderConfigurer] Loading properties file from class path resource [resources/db.properties]
+  2017-12-07 15:45:38 [INFO]-[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] Looking for @ControllerAdvice: org.springframework.context.support.ClassPathXmlApplicationContext@34033bd0: startup date [Thu Dec 07 15:45:37 CST 2017]; root of context hierarchy
+  2017-12-07 15:45:38 [INFO]-[org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] Looking for @ControllerAdvice: org.springframework.context.support.ClassPathXmlApplicationContext@34033bd0: startup date [Thu Dec 07 15:45:37 CST 2017]; root of context hierarchy
+  2017-12-07 15:45:38 [INFO]-[com.alibaba.druid.pool.DruidDataSource] {dataSource-1} inited
+  

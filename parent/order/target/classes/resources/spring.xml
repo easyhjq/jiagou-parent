@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+
+	<!--上下文bean管理 排除controller注解 -->
+	<context:component-scan base-package="com.jiagou">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+
+
+	<!--激活读取上下文资源属性占位符 配置 -->
+	<context:property-placeholder location="classpath:resources/db.properties" />
+
+	<!--数据源 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="url" value="${jdbc.url}" />
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="username" value="${jdbc.username}" />
+	</bean>
+
+	<!--配置mybatis会话工厂 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 注意其他配置 -->
+		<property name="plugins">
+			<array>
+				<bean class="com.github.pagehelper.PageInterceptor">
+					<property name="properties">
+						<value>
+							helperDialect=mysql
+                        	reasonable=true
+                        	params=count=countSql
+                        	autoRuntimeDialect=true
+						</value>
+					</property>
+				</bean>
+			</array>
+		</property>
+		<property name="dataSource" ref="dataSource" />
+		<property name="typeAliasesPackage" value="${typeAliasesPackage.vo}" />
+	</bean>
+
+	<!--使用sqlsessionfactory生成mapper的代理对象 -->
+	<!--如果单数据源，可以不指定sqlSessionFactoryBeanNameMapperScannerConfigurer自动装配 -->
+	<!--如果包扫描范围过大，将会为所有的接口生成一个空的代理实现，使用实现接口或者标记注解来缩写范围 -->
+	<!--basePackage 属性是让你为映射器接口文件设置基本的包路径。 你可以使用分号或逗号 作为分隔符设置多于一个的包路径。每个映射器将会在指定的包路径中递归地被搜索到。 
+		属性不支持使用了 PropertyPlaceholderConfigurer 的属 性替换,因为会在 Spring 其中之前来它加载。但是,你可以使用 
+		PropertiesFactoryBean 和 SpEL 表达式来作为替代。 注 意 , 没 有 必 要 去 指 定 SqlSessionFactory 
+		或 SqlSessionTemplate , 因 为 MapperScannerConfigurer 将会创建 MapperFactoryBean,之后自动装配。 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+		<property name="basePackage" value="com.jiagou.order.dao" />
+		<property name="annotationClass" value="com.jiagou.common.annotation.MybatisMapper" />
+	</bean>
+
+	<!--注册事务管理bean -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!--注册事务驱动，交给spring管理，该处名字如果是transactionManager，则该节点可以省略 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+
+</beans>
